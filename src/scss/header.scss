@@ -1,23 +1,35 @@
 //====================================================================================================
 .header {
 	background-color: $bgColor;
+	position: fixed;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 50;
 	// .header__container
 	&__container {
 		min-height: toRem(80);
 		display: grid;
-		grid-template-columns: toRem(200) 1fr toRem(200);
+		grid-template-columns: toRem(180) 1fr toRem(180);
 		align-items: center;
 		gap: toRem(15);
 		padding-top: toRem(10);
 		padding-bottom: toRem(10);
+		@media (max-width: $mobile) {
+			min-height: toRem(55);
+			justify-content: space-between;
+			grid-template-columns: auto auto;
+		}
 	}
 	// .header__logo
 	&__logo {
+		position: relative;
+		z-index: 5;
 	}
 	// .header__menu
 	&__menu {
 	}
-	// .header__schedule
+	// .header__schedule режим
 	&__schedule {
 		justify-self: end;
 		color: $whiteColor;
@@ -35,6 +47,9 @@
 			border-radius: 50%;
 			background-color: #ff5e5e;
 		}
+		@media (max-width: $mobile) {
+			justify-content: flex-end;
+		}
 	}
 }
 .menu {
@@ -44,13 +59,50 @@
 	}
 	// .menu__body
 	&__body {
+		@media (max-width: $mobile) {
+			padding: toRem(120) toRem(15) toRem(25) toRem(15);
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 100%; // спочатку 0
+			overflow: auto;
+			background-color: $bgColorSemi;
+			display: flex;
+			flex-direction: column;
+			row-gap: toRem(40);
+			transition: left 0.5s ease 0s;
+			&::before {
+				content: "";
+				position: fixed;
+				width: 100%;
+				height: toRem(55);
+				top: 0;
+				left: 100%; // спочатку 0
+				background-color: $bgColor;
+				z-index: 2;
+			}
+			.menu-open & {
+				left: 0;
+				&::before {
+					left: 0;
+				}
+			}
+		}
 	}
 	// .menu__list
 	&__list {
 		display: flex;
 		flex-wrap: wrap;
 		row-gap: toRem(3);
-		@include adaptiveValue("column-gap", 57, 15);
+		@include adaptiveValue("column-gap", 57, 15, 0, $containerWidth, 768);
+		@media (max-width: $mobile) {
+			flex: 1 1 auto;
+			font-size: toRem(30);
+			align-items: flex-end;
+			flex-direction: column;
+			row-gap: toRem(30);
+		}
 	}
 	// .menu__item
 	&__item {
@@ -69,9 +121,7 @@
 }
 
 //====================================================================================================
-
 //Burger
-
 .icon-menu {
 	display: none;
 	@media (max-width: $mobile) {
@@ -92,7 +142,7 @@
 			position: absolute;
 			width: 100%;
 			height: toRem(2);
-			background-color: #000;
+			background-color: #fff;
 		}
 		&::before {
 			top: 0;
