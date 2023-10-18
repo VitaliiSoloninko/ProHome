@@ -1,3 +1,40 @@
 //====================================================================================================
+.hero {
+	background-color: $bgColor;
+	min-height: 100vh;
+	display: grid;
+	padding: toRem(80) toRem(15) toRem(60) toRem(15);
+	grid-template-columns: auto 1fr auto; /* 412/1890 */
+	// .hero__image
+	&__image-ibg {
+		@include adaptiveValue("width", 412, 200, 0, $containerWidth, 991.98);
+		border-radius: toRem(24);
+		overflow: hidden;
+		img {
+			object-position: top;
+		}
+	}
+	// .hero__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("padding-left", 83, 15, 0, $containerWidth, 991.98);
+		@include adaptiveValue("padding-right", 83, 15, 0, $containerWidth, 991.98);
+	}
+	// .hero__content
+	&__content {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	// .hero__block-header
+	&__block-header {
+		max-width: toRem(670);
+		.block-header__title {
+		}
+	}
+}
 
 //====================================================================================================
