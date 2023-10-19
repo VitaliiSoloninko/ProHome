@@ -38,7 +38,19 @@
 	gap: toRem(24);
 	align-items: end;
 }
-
+.done {
+	// .done__item
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: toRem(41);
+	row-gap: toRem(10);
+	&__item {
+		color: $bgColorLite;
+		padding-left: toRem(32);
+		line-height: 1.6;
+		background: url("@img/icons/check.svg") left no-repeat;
+	}
+}
 /*
 			<div class="block-header">
 				<h2 class="block-header__title">
