@@ -47,8 +47,9 @@
 	&__item {
 		color: $bgColorLite;
 		padding-left: toRem(32);
+		font-size: toRem(20);
 		line-height: 1.6;
-		background: url("@img/icons/check.svg") left no-repeat;
+		background: url("@img/icons/check.svg") left toRem(4) no-repeat;
 	}
 }
 /*
