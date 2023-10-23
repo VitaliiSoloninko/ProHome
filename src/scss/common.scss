@@ -16,7 +16,7 @@
 	}
 	// .block-header__title--big
 	&__title--big {
-		@include adaptiveValue("font-size", 64, 44);
+		@include adaptiveValue("font-size", 64, 38);
 	}
 	// .block-header__title--white
 	&__title--white {
@@ -43,11 +43,11 @@
 	display: flex;
 	flex-wrap: wrap;
 	column-gap: toRem(41);
-	row-gap: toRem(10);
+	row-gap: toRem(8);
 	&__item {
 		color: $bgColorLite;
 		padding-left: toRem(32);
-		font-size: toRem(20);
+		@include adaptiveValue("font-size", 20, 18);
 		line-height: 1.6;
 		background: url("@img/icons/check.svg") left toRem(4) no-repeat;
 	}
