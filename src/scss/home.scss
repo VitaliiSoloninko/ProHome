@@ -71,7 +71,6 @@
 	&__decor {
 	}
 }
-
 .items-hero {
 	display: flex;
 	align-items: center;
@@ -155,11 +154,8 @@
 		color: $whiteColor;
 	}
 }
-//====================================================================================================
-
 .decor-hero {
 	// .decor-hero__item
-
 	&__item {
 		@include adaptiveValue("width", 420, 200, 0, $containerWidth, 991.98);
 		position: absolute;
@@ -168,7 +164,7 @@
 		background-color: $whiteColor;
 		&:first-child {
 			left: 0;
-			border-radius: 0 toRem(10) 0 0;
+			border-radius: 0 toRem(20) 0 0 / 0 toRem(10) 0 0;
 			&::after {
 				content: "";
 				position: absolute;
@@ -176,14 +172,31 @@
 				bottom: 0;
 				width: 0;
 				height: 0;
-				transform: translate(calc(100% - toRem(5)), toRem(3.5));
+				transform: translate(calc(100% - toRem(4)), toRem(6.6));
 				border-top: toRem(50) solid transparent;
-				border-left: toRem(60) solid $whiteColor;
+				border-left: toRem(50) solid $whiteColor;
 				border-bottom: solid transparent;
 			}
 		}
 		&:last-child {
 			right: 0;
+			border-radius: toRem(20) 0 0 0 / toRem(10) 0 0 0;
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 0;
+				height: 0;
+				transform: translate(calc(-100% + toRem(4)), toRem(6.6));
+				border-top: toRem(50) solid transparent;
+				border-right: toRem(50) solid $whiteColor;
+				border-bottom: solid transparent;
+			}
+		}
+		@media (max-width: $tablet) {
+			display: none;
 		}
 	}
 }
+//========================================================================================================================================================
