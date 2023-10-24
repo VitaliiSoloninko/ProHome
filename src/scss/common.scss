@@ -7,6 +7,7 @@
 .block-header {
 	display: grid;
 	gap: toRem(24);
+	grid-template-columns: auto;
 	// .block-header__title
 	&__title {
 		color: $darkColor;

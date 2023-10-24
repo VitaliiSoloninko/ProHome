@@ -200,3 +200,72 @@
 	}
 }
 //========================================================================================================================================================
+.services {
+	@include adaptiveValue("margin-top", 123, 40);
+	@include adaptiveValue("margin-top", 64, 40);
+	// .services__container
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		@media (max-width: $tablet) {
+			grid-template-columns: auto;
+		}
+	}
+	// .services__body
+	&__body {
+		@include adaptiveValue("padding-top", 100, 30, 2, $containerWidth, 991.98);
+		@media (min-width: $tablet) {
+			max-width: toRem(580);
+			padding-right: toRem(20);
+		}
+		&:not(:last-child) {
+			margin-bottom: toRem(20);
+		}
+	}
+	// .services__block-header
+	&__block-header {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 56, 25);
+		}
+	}
+	// .services__items
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		@include adaptiveValue("column-gap", 57, 20);
+		@include adaptiveValue("row-gap", 32, 15);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 56, 30);
+		}
+	}
+	// .services__item
+	&__item {
+		@include adaptiveValue("font-size", 20, 18);
+		background: url("@img/icons/check-dark.svg") 0 em(10, 20) no-repeat;
+		padding-left: toRem(28);
+		font-size: toRem(20);
+		font-weight: 700;
+		line-height: 1.4; /* 140% */
+		color: $bgColorSemi;
+	}
+	// .services__info
+	&__info {
+		background-color: $bgColorLite;
+		color: $whiteColor;
+		border-radius: toRem(24);
+		padding: toRem(12) toRem(32);
+		line-height: 1.55;
+		a {
+			font-size: toRem(20);
+			font-weight: 600;
+			line-height: 1.75; /* 28/16 */
+			text-decoration-line: underline;
+		}
+	}
+	// .services__image
+	&__image {
+		img {
+			max-width: 100%;
+		}
+	}
+}
