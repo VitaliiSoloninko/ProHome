@@ -22,6 +22,8 @@
 	&--min {
 	}
 	&--white {
+		background-color: $whiteColor;
+		color: $bgColorLite;
 	}
 	&--icon {
 		span {
