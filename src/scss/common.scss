@@ -5,7 +5,7 @@
 }
 .block-header {
 	display: grid;
-	gap: toRem(24);
+	@include adaptiveValue("gap", 24, 15);
 	grid-template-columns: auto;
 	// .block-header__title
 	&__title {
@@ -35,7 +35,6 @@
 .block-header--inline {
 	grid-template-columns: minmax(auto, toRem(586)) minmax(auto, toRem(613));
 	justify-content: space-between;
-	gap: toRem(24);
 	align-items: end;
 }
 .done {
