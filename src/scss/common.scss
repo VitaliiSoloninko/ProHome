@@ -28,6 +28,9 @@
 			line-height: 1.55;
 		}
 	}
+	&__text--light {
+		color: $grayColor;
+	}
 }
 .block-header--center {
 	text-align: center;
@@ -36,6 +39,9 @@
 	grid-template-columns: minmax(auto, toRem(586)) minmax(auto, toRem(613));
 	justify-content: space-between;
 	align-items: end;
+	@media (max-width: $tablet) {
+		grid-template-columns: auto;
+	}
 }
 .done {
 	// .done__item

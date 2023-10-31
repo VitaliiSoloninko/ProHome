@@ -355,38 +355,92 @@
 }
 //========================================================================================================================================================
 .advantages {
+	@media (min-width: $tablet) {
+		@include adaptiveValue("padding-left", 60, 15, 2, $containerWidth, 991.98);
+		@include adaptiveValue("padding-right", 64, 15, 2, $containerWidth, 991.98);
+	}
+
 	// .advantages__body
 	&__body {
-		background-color: $bgColor;
 		@include adaptiveValue("padding-top", 64, 30);
 		@include adaptiveValue("padding-bottom", 64, 30);
+		background-color: $bgColor;
+		position: relative;
+		@media (min-width: $tablet) {
+			padding-left: toRem(70);
+			padding-right: toRem(70);
+			border-radius: toRem(24);
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				width: toRem(45);
+				height: 73%;
+				max-height: toRem(645);
+				transform: translate(0px, -50%);
+				background: url("@img/advantages/decoration.svg") left / auto 100% no-repeat;
+			}
+			&::before {
+				left: 0;
+			}
+			&::after {
+				right: 0;
+				transform: translate(0px, -50%) rotate(180deg);
+			}
+		}
 	}
 	// .advantages__container
 	&__container {
 	}
 	// .advantages__header
 	&__header {
-		&:not(:last-child) {
-			@include adaptiveValue("margin-bottom", 64, 15);
+		@include adaptiveValue("padding-bottom", 120, 30);
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			@include adaptiveValue("bottom", 60, 15);
+			height: toRem(1);
+			width: 100%;
+			background: linear-gradient(
+				90deg,
+				rgba(20, 34, 87, 0) 0%,
+				rgba(79, 102, 183, 1) 50%,
+				rgba(20, 34, 87, 0) 100%
+			);
 		}
 	}
 	// .advantages__items
 	&__items {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, auto);
 		@include adaptiveValue("row-gap", 60, 20);
 		@include adaptiveValue("column-gap", 184, 20);
-		@include adaptiveValue("padding-top", 64, 15);
+		justify-content: space-between;
+		@media (max-width: $tablet) {
+			grid-template-columns: auto;
+		}
 	}
 	// .advantages__item
 	&__item {
-		display: flex;
-		@include adaptiveValue("gap", 32, 20);
+		max-width: toRem(630);
 	}
 }
 .item-advantages {
+	display: flex;
+	@include adaptiveValue("gap", 32, 15);
 	// .item-advantages__icon
 	&__icon {
+		flex: 0 0 toRem(100);
+		height: toRem(100);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			max-width: 100%;
+		}
 	}
 	// .item-advantages__body
 	&__body {
