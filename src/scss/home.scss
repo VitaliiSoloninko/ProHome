@@ -201,8 +201,8 @@
 }
 //========================================================================================================================================================
 .about {
-	@include adaptiveValue("margin-top", 123, 40);
-	@include adaptiveValue("margin-top", 64, 20);
+	@include adaptiveValue("padding-top", 123, 40);
+	@include adaptiveValue("padding-bottom", 64, 20);
 	// .about__container
 	&__container {
 		display: grid;
@@ -362,8 +362,8 @@
 
 	// .advantages__body
 	&__body {
-		@include adaptiveValue("padding-top", 64, 30);
-		@include adaptiveValue("padding-bottom", 64, 30);
+		@include adaptiveValue("padding-top", 64, 40);
+		@include adaptiveValue("padding-bottom", 64, 40);
 		background-color: $bgColor;
 		position: relative;
 		@media (min-width: $tablet) {
