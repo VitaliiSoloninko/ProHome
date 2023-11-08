@@ -534,7 +534,7 @@
 //========================================================================================================================================================
 .how {
 	@include adaptiveValue("padding-top", 155, 30);
-	@include adaptiveValue("padding-bottom", 155, 30);
+	@include adaptiveValue("padding-bottom", 155, 15);
 	// .how__container
 	&__container {
 		display: grid;
@@ -614,7 +614,7 @@
 }
 //========================================================================================================================================================
 .reviews {
-	@include adaptiveValue("padding-top", 130, 40);
+	@include adaptiveValue("padding-top", 130, 15);
 	@include adaptiveValue("padding-bottom", 130, 40);
 	// .reviews__container
 	&__container {
@@ -622,7 +622,9 @@
 	}
 	// .reviews__body
 	&__body {
-		padding: 0 toRem(72);
+		@media (min-width: em(600)) {
+			padding: 0 toRem(72);
+		}
 		position: relative;
 		&:not(:last-child) {
 			@include adaptiveValue("margin-bottom", 66, 20);
@@ -633,11 +635,12 @@
 		max-width: toRem(650);
 		margin: 0 auto;
 		&:not(:last-child) {
-			@include adaptiveValue("margin-bottom", 66, 30);
+			@include adaptiveValue("margin-bottom", 90, 30);
 		}
 	}
 	// .reviews__slider
 	&__slider {
+		@include adaptiveValue("margin-bottom", 106, 20);
 	}
 	// .reviews__wrapper
 	&__wrapper {
@@ -653,12 +656,15 @@
 		width: toRem(48);
 		height: toRem(48);
 		border-radius: 50%;
-		background: $grayColor url("@img/icons/arrow.svg") center no-repeat;
+		background: #e3e6f0 url("@img/icons/arrow.svg") center no-repeat;
 		transition: all 0.3s;
 		@media (any-hover: hover) {
 			&:hover {
 				background: $bgColorLite url("@img/icons/arrow.svg") center no-repeat;
 			}
+		}
+		@media (max-width: em(600)) {
+			display: none;
 		}
 	}
 	// .reviews__arrow--left
@@ -668,7 +674,35 @@
 	// .reviews__arrow--right
 	&__arrow--right {
 		right: 0;
-		transform: rotate(-180deg);
+		transform: translate(0px, -50%) rotate(-180deg);
+	}
+	&.swiper-button-disabled {
+		background: #e3e6f0 url("@img/icons/arrow.svg") center no-repeat;
+		pointer-events: none;
+		cursor: default;
+	}
+
+	// .reviews__bullets
+	&__bullets {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		column-gap: toRem(12);
+		row-gap: toRem(3);
+		.swiper-pagination-bullet {
+			flex: 0 0 toRem(12);
+			height: toRem(12);
+			background-color: #e3e6f0;
+			border-radius: 50%;
+			cursor: pointer;
+			transition: all 0.5s;
+		}
+		.swiper-pagination-bullet-active {
+			background-color: $bgColorLite;
+			flex: 0 0 toRem(40);
+			border-radius: toRem(6);
+		}
 	}
 }
 .slide-reviews {
@@ -699,12 +733,13 @@
 	}
 	// .slide-reviews__text
 	&__text {
-		max-width: toRem(728);
 		text-align: center;
 	}
 	// .slide-reviews__user
 	&__user {
-		display: flex;
+		text-align: left;
+		max-width: toRem(720);
+		display: inline-flex;
 		gap: toRem(32);
 		&:not(:last-child) {
 			@include adaptiveValue("margin-bottom", 40, 20);
@@ -712,6 +747,12 @@
 	}
 	// .slide-reviews__avatar
 	&__avatar {
+		flex: 0 0 toRem(76);
+		height: toRem(76);
+		border-radius: 50%;
+		img {
+			max-width: 100%;
+		}
 	}
 	// .slide-reviews__body
 	&__body {
@@ -721,12 +762,16 @@
 		@include adaptiveValue("font-size", 24, 20);
 		font-weight: 700;
 		line-height: 1.33; /* 133.333% */
+		color: $darkColor;
 		&:not(:last-child) {
 			margin-bottom: toRem(8);
 		}
 	}
 	// .slide-reviews__rating
 	&__rating {
+		.rating__value {
+			display: none;
+		}
 	}
 }
 .rating {
@@ -746,3 +791,4 @@
 	&__value {
 	}
 }
+//========================================================================================================================================================
