@@ -615,7 +615,7 @@
 //========================================================================================================================================================
 .reviews {
 	@include adaptiveValue("padding-top", 130, 15);
-	@include adaptiveValue("padding-bottom", 130, 40);
+	@include adaptiveValue("padding-bottom", 130, 20);
 	// .reviews__container
 	&__container {
 		max-width: toRem(1160);
@@ -792,3 +792,95 @@
 	}
 }
 //========================================================================================================================================================
+.blog {
+	@include adaptiveValue("padding-top", 130, 20);
+	@include adaptiveValue("padding-bottom", 130, 20);
+	// .blog__container
+	&__container {
+		display: grid;
+	}
+	// .blog__block-header
+	&__block-header {
+		max-width: toRem(690);
+		margin: 0 auto;
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 56, 25);
+		}
+	}
+	// .blog__items
+	&__items {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(toRem(400), 1fr));
+		@include adaptiveValue("gap", 48, 20);
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 56, 20);
+		}
+		@media (max-width: $mobileSmall) {
+			grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
+		}
+	}
+	// .blog__item
+	&__item {
+	}
+	// .blog__view-more
+	&__view-more {
+		justify-self: center;
+		@include adaptiveValue("font-size", 24, 20);
+		font-weight: 700;
+		line-height: 1.33;
+		color: $bgColorLite;
+		text-align: center;
+		padding-right: em(20, 24);
+		background: url("@img/icons/more.svg") right no-repeat;
+	}
+}
+.item-blog {
+	display: flex;
+	flex-direction: column;
+	@include adaptiveValue("gap", 24, 18);
+	// .item-blog__image
+	&__image {
+		border-radius: toRem(24);
+		img {
+			max-width: 100%;
+		}
+	}
+	// .item-blog__content
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(16);
+	}
+	// .item-blog__date
+	&__date {
+	}
+	// .item-blog__title
+	&__title {
+		@include adaptiveValue("font-size", 32, 20);
+		font-weight: 700;
+		line-height: 1.25; /* 125% */
+		color: $darkColor;
+	}
+	// .item-blog__link-title
+	&__link-title {
+	}
+	// .item-blog__text
+	&__text {
+	}
+	// .item-blog__tags
+	&__tags {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: toRem(12);
+		row-gap: toRem(8);
+	}
+	// .item-blog__tag
+	&__tag {
+		font-size: toRem(14);
+		font-weight: 600;
+		line-height: 1.42; /* 142.857% */
+		padding: toRem(8) toRem(16);
+		background-color: #f3f5f9;
+		border-radius: toRem(20);
+	}
+}
