@@ -66,6 +66,16 @@
 			margin-bottom: toRem(15);
 		}
 	}
+	a {
+		font-weight: 700;
+		color: $bgColorLite;
+		text-decoration: underline;
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
 }
 //========================================================================================================================================================
 .done {
