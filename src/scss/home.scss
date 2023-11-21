@@ -923,8 +923,12 @@
 	&__container {
 		display: grid;
 		grid-template-columns: auto 58%;
-		gap: toRem(20);
+		column-gap: toRem(20);
+		row-gap: toRem(30);
 		align-items: start;
+		@media (max-width: $tablet) {
+			grid-template-columns: auto;
+		}
 	}
 	// .questions__block-header
 	&__block-header {
@@ -944,19 +948,49 @@
 		&[open] {
 			background-color: #f3f5f9;
 		}
+		@media (max-width: $mobileSmall) {
+			padding: toRem(16) toRem(24);
+		}
 	}
 	// .spollers-questions__title
 	&__title {
+		padding-right: toRem(30);
 		list-style: none;
 		transition: all 0.5s;
 		@include adaptiveValue("font-size", 24, 18);
 		font-weight: 700;
 		line-height: 1.33;
-		._spoller-init & {
-			cursor: pointer;
-		}
 		&::marker {
 			display: none;
+		}
+		._spoller-init & {
+			position: relative;
+			cursor: pointer;
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				right: toRem(0);
+				top: 50%;
+				background-color: #000;
+				height: toRem(2);
+				width: toRem(15);
+				transition: transform 0.5s ease 0s;
+			}
+			&::before {
+				transform: translate(-75%, -50%) rotate(44deg);
+			}
+			&::after {
+				transform: translate(0, -50%) rotate(-44deg);
+			}
+			&._spoller-active {
+				&::before {
+					transform: translateX(-75%) rotate(-44deg);
+				}
+				&::after {
+					transform: rotate(44deg);
+				}
+			}
 		}
 	}
 	// .spollers-questions__body

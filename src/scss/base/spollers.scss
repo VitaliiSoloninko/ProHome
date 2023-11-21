@@ -49,39 +49,6 @@
 				transform: rotate(40deg);
 			}
 		}
-		/*
-		._spoller-init & {
-			position: relative;
-			width: 100%;
-			text-align: left;
-			&::before,
-			&::after {
-				content: "";
-				position: absolute;
-				right: 0;
-				top: toRem(12);
-				height: toRem(1);
-				transition: all 0.3s ease 0s;
-				width: toRem(10);
-				background-color: #000;
-			}
-			&::before {
-				transform: rotate(40deg);
-				right: toRem(7);
-			}
-			&::after {
-				transform: rotate(-40deg);
-			}
-		}
-		&._spoller-active {
-			&::before {
-				transform: rotate(-40deg);
-			}
-			&::after {
-				transform: rotate(40deg);
-			}
-		}
-		*/
 	}
 }
 // Контент спойлера
