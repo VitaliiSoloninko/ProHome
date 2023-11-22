@@ -1,3 +1,132 @@
 //====================================================================================================
-
+.footer {
+	background-color: $bgColorLite;
+	color: $whiteColor;
+	// .footer__container
+	&__container {
+		@include adaptiveValue("padding-top", 52, 30);
+	}
+	// .footer__content
+	&__content {
+	}
+	// .footer__subscribe
+	&__subscribe {
+	}
+	// .footer__body
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		gap: toRem(20);
+		@include adaptiveValue("padding-top", 52, 30);
+		@include adaptiveValue("padding-bottom", 74, 30);
+	}
+	// .footer__info
+	&__info {
+		max-width: toRem(460);
+	}
+	// .footer__logo
+	&__logo {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 32, 15);
+		}
+	}
+	// .footer__text
+	&__text {
+		&:not(:last-child) {
+			@include adaptiveValue("margin-bottom", 32, 15);
+		}
+	}
+	// .footer__social
+	&__social {
+		display: flex;
+		gap: toRem(24);
+		flex-wrap: wrap;
+	}
+	// .footer__menu
+	&__menu {
+	}
+	// .footer__copy
+	&__copy {
+		text-align: center;
+		padding: toRem(32) toRem(0);
+		border-top: toRem(1) solid rgba(255, 255, 255, 0.3);
+	}
+}
+.subscribe {
+	display: flex;
+	gap: toRem(20);
+	justify-content: space-between;
+	align-items: center;
+	background-color: #4ac9ff;
+	border-radius: toRem(24);
+	padding: toRem(24) toRem(24);
+	// .subscribe__body
+	&__body {
+	}
+	// .subscribe__title
+	&__title {
+		@include adaptiveValue("font-size", 24, 20);
+		font-weight: 700;
+		line-height: 1.33;
+		&:not(:last-child) {
+			margin-bottom: toRem(12);
+		}
+	}
+	// .subscribe__text
+	&__text {
+	}
+	// .subscribe__form
+	&__form {
+		background-color: $whiteColor;
+		padding: toRem(12);
+		border-radius: toRem(60);
+		max-width: toRem(516);
+		display: flex;
+		justify-content: space-between;
+		justify-content: center;
+	}
+	// .subscribe__input
+	&__input {
+		color: #9ea3b5;
+		padding: toRem(12) toRem(8);
+	}
+	// .subscribe__button
+	&__button {
+	}
+}
+.social {
+	// .social__item
+	&__item {
+	}
+	// .social__link
+	&__link {
+	}
+}
+.menu-footer {
+	// .menu-footer__spollers
+	&__spollers {
+		display: flex;
+		column-gap: toRem(102);
+	}
+	// .menu-footer__block
+	&__block {
+	}
+	// .menu-footer__title
+	&__title {
+		@include adaptiveValue("font-size", 24, 20);
+		font-weight: 700;
+		line-height: 1.33; /* 133.333% */
+	}
+	// .menu-footer__list
+	&__list {
+	}
+	// .menu-footer__item
+	&__item {
+	}
+	// .menu-footer__link
+	&__link {
+		font-size: toRem(20);
+		line-height: 1.6;
+	}
+}
 //====================================================================================================
