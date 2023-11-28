@@ -955,11 +955,11 @@
 	// .spollers-questions__title
 	&__title {
 		padding-right: toRem(30);
-		list-style: none;
 		transition: all 0.5s;
-		@include adaptiveValue("font-size", 24, 18);
 		font-weight: 700;
 		line-height: 1.33;
+		list-style: none;
+		@include adaptiveValue("font-size", 24, 18);
 		&::marker {
 			display: none;
 		}
@@ -1016,6 +1016,7 @@
 	// .talk__content
 	&__content {
 		position: relative;
+		z-index: 2;
 		@include adaptiveValue("padding-top", 165, 40);
 		@include adaptiveValue("padding-bottom", 106, 40);
 		&::before {
